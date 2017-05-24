@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      EventList
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addEvent()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <h2>Events list</h2>
+  <ion-list>
+    <ion-item-sliding>
+      <ion-item *ngFor="let event of events | async">
+          <p>Name: {{event.nameEvent}}</p>
+          <p>Description: {{event.description}}</p>
+          <p>Info: {{event.info}}</p>
+          <p>Place: {{event.place}}</p>
+          <p>Date: {{event.date}}</p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="secondary" (click)="showEvent()">
+          <ion-icon name="md-create">
+            +Info
+          </ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
